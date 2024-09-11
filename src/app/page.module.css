@@ -25,3 +25,15 @@
     border-color: transparent;
   }
 }
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+.box.move {
+  transform: translateX(-200px); /* Change this to adjust the movement */
+}
