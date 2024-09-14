@@ -34,6 +34,6 @@
   transition: transform 0.5s ease;
 }
 
-.box.move {
-  transform: translateX(-200px); /* Change this to adjust the movement */
+.move {
+  transform: translateX(200px);
 }
