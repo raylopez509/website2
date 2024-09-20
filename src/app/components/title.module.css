@@ -2,6 +2,7 @@
   height: 96vh;
   display: grid;
   place-items: center;
+  transition: height 2s;
 }
 
 .typing {
@@ -24,4 +25,8 @@
   50% {
     border-color: transparent;
   }
+}
+
+.clicked {
+  height: 10vh;
 }
