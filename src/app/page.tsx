@@ -11,14 +11,14 @@ export default function Home() {
   const [move, setMove] = useState(false);
 
   const handleClick = () => {
-    setMove(!move);
+    setMove(true);
   };
 
   return (
     <main>
-      <Title />
+      <Title move={move} />
       <div
-        className={`${styles.box} ${move ? styles.move : ""}`}
+        // className={`${styles.box} ${move ? styles.move : ""}`}
         onClick={handleClick}
       >
         Projects
