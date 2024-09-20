@@ -32,7 +32,7 @@ const links = [
   // },
 ];
 
-export default function NavigationBar({ onLinkClick }: { onLinkClick: any }) {
+export default function NavigationBar() {
   return (
     <>
       <div className={styles.navbar}>
@@ -41,12 +41,7 @@ export default function NavigationBar({ onLinkClick }: { onLinkClick: any }) {
             animationDelay: `${4 + index}s`,
           };
           return (
-            <Link
-              onClick={onLinkClick}
-              className={styles.slidein}
-              style={linkStyle}
-              href={link.href}
-            >
+            <Link className={styles.slidein} style={linkStyle} href={link.href}>
               {link.text}
             </Link>
           );

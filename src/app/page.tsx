@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main>
       <Title clicked={isClicked} />
-      <NavBar onLinkClick={handleClick} />
+      <NavBar />
       {/* <div onClick={handleClick}>Projects</div> */}
     </main>
   );
