@@ -1,5 +1,6 @@
 import styles from "./navbar.module.css";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const links = [
   {
@@ -33,6 +34,15 @@ const links = [
 ];
 
 export default function NavigationBar({ onLinkClick }: { onLinkClick: any }) {
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  useEffect(() => {
+    const animationDuration = 11000;
+    const timer = setTimeout(() => setIsAnimating(false), animationDuration);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <div className={styles.navbar}>
@@ -41,14 +51,21 @@ export default function NavigationBar({ onLinkClick }: { onLinkClick: any }) {
             animationDelay: `${4 + index}s`,
           };
           return (
-            <Link
-              onClick={onLinkClick}
-              className={styles.slidein}
-              style={linkStyle}
-              href={link.href}
-            >
-              {link.text}
-            </Link>
+            <>
+              {isAnimating ? (
+                <span className={styles.slidein} style={linkStyle}>
+                  {link.text}
+                </span>
+              ) : (
+                <Link
+                  onClick={onLinkClick}
+                  className={styles.button}
+                  href={link.href}
+                >
+                  {link.text}
+                </Link>
+              )}
+            </>
           );
         })}
       </div>

@@ -50,9 +50,17 @@
 }
 
 .slidein {
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
   display: inline-block;
   opacity: 0;
   animation: slideIn 2s ease-out forwards;
   animation-delay: 2s;
   animation-fill-mode: forwards;
+}
+
+.button {
+  display: inline-block;
 }
