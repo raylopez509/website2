@@ -50,6 +50,7 @@
 }
 
 .slidein {
+  user-select: none;
   display: block;
   text-align: center;
   padding: 14px 20px;
