@@ -1,5 +1,9 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
 .navbar a {
-  float: left;
   display: block;
   text-align: center;
   padding: 14px 20px;
