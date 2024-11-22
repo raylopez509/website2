@@ -5,12 +5,19 @@ import NavBar from "./NavBar";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-export default function Layout() {
+export default function TopBar({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [isClicked, setIsClicked] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+
   const handleClick = () => {
     setIsClicked(true);
+    setShowContent(false);
+    setTimeout(() => {
+      setShowContent(true);
+    }, 2000);
   };
+
   useEffect(() => {
     if (pathname === "/") {
       setIsClicked(false);
@@ -23,6 +30,7 @@ export default function Layout() {
     <>
       <Title clicked={isClicked} />
       <NavBar onLinkClick={handleClick} />
+      {showContent && <main>{children}</main>}
     </>
   );
 }
