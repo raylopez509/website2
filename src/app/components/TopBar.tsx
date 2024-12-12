@@ -13,9 +13,11 @@ export default function TopBar({ children }: { children: React.ReactNode }) {
   const handleClick = () => {
     setIsClicked(true);
     setShowContent(false);
-    setTimeout(() => {
-      setShowContent(true);
-    }, 2000);
+    if (pathname === "/") {
+      setTimeout(() => {
+        setShowContent(true);
+      }, 2000);
+    }
   };
 
   useEffect(() => {
@@ -23,6 +25,7 @@ export default function TopBar({ children }: { children: React.ReactNode }) {
       setIsClicked(false);
     } else {
       setIsClicked(true);
+      setShowContent(true);
     }
   });
 

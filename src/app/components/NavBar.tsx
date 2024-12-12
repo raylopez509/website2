@@ -1,6 +1,7 @@
 import styles from "./navbar.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
   {
@@ -34,10 +35,14 @@ const links = [
 ];
 
 export default function NavigationBar({ onLinkClick }: { onLinkClick: any }) {
+  const pathname = usePathname();
   const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
-    const animationDuration = 11000;
+    let animationDuration = 11000;
+    if (pathname !== "/") {
+      animationDuration = 0;
+    }
     const timer = setTimeout(() => setIsAnimating(false), animationDuration);
 
     return () => clearTimeout(timer);
